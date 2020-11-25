@@ -9,9 +9,17 @@ use Illuminate\Support\Facades\Validator;
 class PostController extends Controller
 {
 
-    public function index()
+    public function index(Request $request)
     {
-        $posts = Post::orderBy('id', 'desc')->get();
+        $keyword = isset($request->keyword) && $request->keyword != '' ? $request->keyword : null;
+
+        $posts = Post::orderBy('id', 'desc');
+        if (!is_null($keyword))
+        {
+            $posts = $posts->search($keyword, null, true);
+        }
+
+        $posts = $posts->get();
         return view('posts.index', compact('posts'));
     }
 

@@ -9,6 +9,19 @@
                         <table class="table table-bordered">
                             <thead>
                             <tr>
+                                <th colspan="3">
+                                    <form action="{{ route('posts.index') }}" method="get">
+                                        <div class="input-group mb-3">
+                                            <input type="text" class="form-control" name="keyword" value="{{ old('keyword', request()->input('keyword')) }}" placeholder="{{ __('posts.keyword') }}">
+                                            <div class="input-group-append">
+                                                <button class="btn btn-outline-secondary" type="submit" id="button-addon2">
+                                                    {{ __('posts.search') }}</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </th>
+                            </tr>
+                            <tr>
                                 <th>{{ __('posts.id') }}</th>
                                 <th>{{ __('posts.title') }}</th>
                                 <th>{{ __('posts.action') }}</th>

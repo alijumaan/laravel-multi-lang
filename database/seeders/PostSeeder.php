@@ -181,6 +181,17 @@ class PostSeeder extends Seeder
             'ca' => 'Alguien está sentado a la sombra hoy porque alguien plantó un árbol hace mucho tiempo.',
         ];
 
+        $quots16['title'] = [
+            'en' => 'Someone’s sitting in the shade today because someone planted a tree a long time ago.',
+            'ar' => 'شخص ما يجلس في الظل اليوم لأن أحدهم زرع شجرة منذ زمن بعيد',
+            'ca' => 'Alguien está sentado a la sombra hoy porque alguien plantó un árbol hace mucho tiempo.',
+        ];
+        $quots16['body'] = [
+            'en' => 'Someone’s sitting in the shade today because someone planted a tree a long time ago.',
+            'ar' => 'شخص ما يجلس في الظل اليوم لأن أحدهم زرع شجرة منذ زمن بعيد',
+            'ca' => 'Alguien está sentado a la sombra hoy porque alguien plantó un árbol hace mucho tiempo.',
+        ];
+
         Post::create($quots01);
         Post::create($quots02);
         Post::create($quots03);
@@ -196,6 +207,7 @@ class PostSeeder extends Seeder
         Post::create($quots13);
         Post::create($quots14);
         Post::create($quots15);
+        Post::create($quots16);
 
 
     }

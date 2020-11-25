@@ -2,32 +2,37 @@
 
 namespace App\Models;
 
-use Cviebrock\EloquentSluggable\Sluggable;
+use App\Helper\MySlugHelper;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Nicolaslopezj\Searchable\SearchableTrait;
+use Spatie\Sluggable\HasTranslatableSlug;
+use Spatie\Sluggable\SlugOptions;
 use Spatie\Translatable\HasTranslations;
 
 class Post extends Model
 {
-    use HasFactory, HasTranslations, Sluggable;
+    use HasFactory, HasTranslations, SearchableTrait, HasTranslatableSlug;
 
     protected $guarded = [];
     public $translatable = ['title', 'slug', 'body'];
 
-    public function sluggable()
+    /**
+     * Get the options for generating the slug.
+     */
+    public function getSlugOptions() : SlugOptions
     {
-        return [
-            'slug->en' => [
-                'source' => 'titleen',
-            ],
-            'slug->ar' => [
-                'source' => 'titlear',
-            ],
-            'slug->ca' => [
-                'source' => 'titleca',
-            ]
-        ];
+        return SlugOptions::create()
+            ->generateSlugsFrom('title')
+            ->saveSlugsTo('slug');
     }
+
+    protected $searchable = [
+        'columns' => [
+            'title' => 10,
+            'body' => 10,
+        ]
+    ];
 
     protected function asJson($value)
     {
@@ -39,18 +44,16 @@ class Post extends Model
         return 'slug';
     }
 
-    public function getTitleenAttribute()
+    protected function generateNonUniqueSlug(): string
     {
-        return $this->getTranslation('title', 'en');
+        $slugField = $this->slugOptions->slugField;
+
+        if ($this->hasCustomSlugBeenUsed() && ! empty($this->$slugField)) {
+            return $this->$slugField;
+        }
+
+//        return Str::slug($this->getSlugSourceString(), $this->slugOptions->slugSeparator, $this->slugOptions->slugLanguage);
+        return MySlugHelper::slug($this->getSlugSourceString());
     }
 
-    public function getTitlearAttribute()
-    {
-        return $this->getTranslation('title', 'ar');
-    }
-
-    public function getTitlecaAttribute()
-    {
-        return $this->getTranslation('title', 'ca');
-    }
 }
