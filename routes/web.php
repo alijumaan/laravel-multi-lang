@@ -11,8 +11,6 @@ Route::get('/change-lang/{local}', [LocaleController::class, 'switch'])->name('c
 Route::group(['middleware' => 'web'], function () {
     require __DIR__.'/auth.php';
     Route::get('/dashboard', [HomeController::class, 'dashboard'])->middleware(['auth'])->name('dashboard');
-    Route::get('/', [HomeController::class, 'home'])->name('home');
+    Route::get('/',          [HomeController::class, 'home'])->name('home');
     Route::resource('posts', PostController::class);
 });
-
-

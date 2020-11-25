@@ -20,9 +20,10 @@
     @if(config('locales.languages')[app()->getLocale()]['dir'] == 'rtl')
         <link rel="stylesheet" href="{{ asset('frontend/css/bootstrap-rtl.css') }}">
     @endif
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
 </head>
 <body>
-<div id="app">
+<div>
     <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
         <div class="container">
             <a class="navbar-brand" href="{{ url('/') }}">
@@ -56,6 +57,9 @@
 
                     <li class="nav-item">
                         <a href="{{ route('posts.index') }}" class="nav-link">Posts</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ route('posts.create') }}" class="nav-link">Create new post</a>
                     </li>
                     <!-- Authentication Links -->
                     @guest
@@ -95,9 +99,9 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-8">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
+                    @if (session('message'))
+                        <div class="alert alert-{{ session('alert-type') }}" role="alert">
+                            {{ session('message') }}
                         </div>
                     @endif
                 </div>
@@ -108,6 +112,6 @@
     </main>
 </div>
 <!-- Scripts -->
-<script src="{{ asset('js/app.js') }}" defer></script>
+<script src="{{ asset('js/app.js') }}"></script>
 </body>
 </html>

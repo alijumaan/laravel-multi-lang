@@ -4,7 +4,7 @@
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header">{{ __('posts.create_post') }}</div>
+                    <div class="card-header">{{ __('posts.edit_post') }}</div>
                     <div class="card-body">
 
                         @if ($errors->any())
@@ -17,8 +17,9 @@
                             </div>
                         @endif
 
-                        <form action="{{ route('posts.store') }}" method="post">
+                        <form action="{{ route('posts.update', $post) }}" method="POST">
                             @csrf
+                            @method('PATCH')
 
                             <ul class="nav nav-tabs" id="myTab" role="tablist">
                                 @foreach(config('locales.languages') as $key => $val)
@@ -35,12 +36,12 @@
 
                                         <div class="form-group">
                                             <label for="title">{{ __('posts.title') }} ({{ $key }})</label>
-                                            <input type="text" name="title[{{ $key }}]" value="{{ old('title.' . $key) }}" class="form-control">
+                                            <input type="text" name="title[{{ $key }}]" value="{{ old('title.' . $key, $post->getTranslation('title', $key)) }}" class="form-control">
                                         </div>
 
                                         <div class="form-group">
                                             <label for="body">{{ __('posts.body') }} ({{ $key }})</label>
-                                            <textarea name="body[{{ $key }}]" class="form-control">{{ old('body.' . $key) }}</textarea>
+                                            <textarea name="body[{{ $key }}]" class="form-control">{{ old('body.' . $key, $post->getTranslation('body', $key)) }}</textarea>
                                         </div>
 
                                     </div>
@@ -48,7 +49,7 @@
                             </div>
 
                             <div class="form-group">
-                                <button type="submit" name="submit" class="btn btn-primary">{{ __('posts.create_post') }}</button>
+                                <button type="submit" name="submit" class="btn btn-primary">{{ __('posts.edit_post') }}</button>
                             </div>
 
                         </form>

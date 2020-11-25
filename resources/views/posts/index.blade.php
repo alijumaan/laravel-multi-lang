@@ -9,8 +9,9 @@
                         <table class="table table-bordered">
                             <thead>
                             <tr>
-                                <th>ID</th>
-                                <th>Title</th>
+                                <th>{{ __('posts.id') }}</th>
+                                <th>{{ __('posts.title') }}</th>
+                                <th>{{ __('posts.action') }}</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -18,6 +19,14 @@
                             <tr>
                                 <td>{{ $post->id }}</td>
                                 <td><a href="{{ route('posts.show', $post->slug) }}">{{ $post->title }}</a></td>
+                                <td>
+                                    <a href="{{ route('posts.edit', $post->slug) }}"><i class="fa fa-edit"></i></a>
+                                    <a href="javascript:void(0);" onclick="if (confirm('Are You Sure?')) {document.getElementById('delete-post-{{ $post->id }}').submit();} else { return false; }"><i class="fa fa-trash text-danger"></i></a>
+                                    <form action="{{ route('posts.destroy', $post) }}" method="POST" id="delete-post-{{ $post->id }}" style="display: none;">
+                                        @csrf
+                                        @method('DELETE')
+                                    </form>
+                                </td>
                             </tr>
                             @empty
                                 <th colspan="2">No Posts Found.</th>

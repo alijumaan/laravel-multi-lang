@@ -23,17 +23,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bdd195b2-acc6-43bd-8d8f-43f8374223e4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/lang/ar/posts.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/lang/ca/posts.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/lang/en/posts.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/posts/create.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/posts/edit.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/LocaleController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/LocaleController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PostController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PostController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/lang/ar/routes.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/lang/ca/routes.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/lang/en/routes.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/posts/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/posts/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/posts/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/posts/index.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -169,7 +165,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/lang/en" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/posts" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -181,8 +177,8 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/resources/lang/en" />
       <recent name="$PROJECT_DIR$/resources/views/posts" />
+      <recent name="$PROJECT_DIR$/resources/lang/en" />
       <recent name="$PROJECT_DIR$/resources/lang/ca" />
       <recent name="$PROJECT_DIR$/resources/lang" />
       <recent name="$PROJECT_DIR$/resources/lang/ar" />
@@ -206,7 +202,9 @@
       <workItem from="1605282565555" duration="12381000" />
       <workItem from="1605296797335" duration="942000" />
       <workItem from="1605722970017" duration="10000" />
-      <workItem from="1606293165130" duration="6704000" />
+      <workItem from="1606293165130" duration="6969000" />
+      <workItem from="1606312136801" duration="3747000" />
+      <workItem from="1606327601504" duration="941000" />
     </task>
     <servers />
   </component>
@@ -223,12 +221,13 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="1267" y="311" width="524" height="491" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1606296383032">
+    <state x="1267" y="311" width="524" height="491" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1606313445333">
       <screen x="0" y="27" width="2560" height="1053" />
     </state>
-    <state x="1267" y="311" width="524" height="491" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.27.2560.1053/2560.0.2560.1080@0.27.2560.1053" timestamp="1606296383032" />
+    <state x="1267" y="311" width="524" height="491" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.27.2560.1053/2560.0.2560.1080@0.27.2560.1053" timestamp="1606313445333" />
     <state x="426" y="469" width="449" height="175" key="ComposerInitDialogKey" timestamp="1605212163570">
       <screen x="0" y="27" width="2560" height="1053" />
     </state>
@@ -245,9 +244,9 @@
       <screen x="0" y="27" width="2560" height="1053" />
     </state>
     <state x="304" y="252" key="run.anything.popup/0.27.2560.1053/2560.0.2560.1080@0.27.2560.1053" timestamp="1605282870935" />
-    <state x="303" y="259" width="672" height="678" key="search.everywhere.popup" timestamp="1606298764857">
+    <state x="303" y="259" width="672" height="678" key="search.everywhere.popup" timestamp="1606328129710">
       <screen x="0" y="27" width="2560" height="1053" />
     </state>
-    <state x="303" y="259" width="672" height="678" key="search.everywhere.popup/0.27.2560.1053/2560.0.2560.1080@0.27.2560.1053" timestamp="1606298764857" />
+    <state x="303" y="259" width="672" height="678" key="search.everywhere.popup/0.27.2560.1053/2560.0.2560.1080@0.27.2560.1053" timestamp="1606328129710" />
   </component>
 </project>
