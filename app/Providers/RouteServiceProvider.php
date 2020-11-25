@@ -36,10 +36,9 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $locale = app()->getLocale();
         $this->configureRateLimiting();
 
-        $this->routes(function () use ($locale){
+        $this->routes(function () {
             Route::prefix('api')
                 ->middleware('api')
                 ->namespace($this->namespace)
@@ -48,10 +47,6 @@ class RouteServiceProvider extends ServiceProvider
             Route::middleware('web')
                 ->namespace($this->namespace)
                 ->group(base_path('routes/web.php'));
-
-            Route::bind('post', function ($slug) use ($locale) {
-                return $this->resolveModel(Post::class, $slug, $locale);
-            });
         });
     }
 
@@ -65,26 +60,5 @@ class RouteServiceProvider extends ServiceProvider
         RateLimiter::for('api', function (Request $request) {
             return Limit::perMinute(60)->by(optional($request->user())->id ?: $request->ip());
         });
-    }
-
-    protected function resolveModel($modelClass, $slug, $locale)
-    {
-        $model = $modelClass::where('slug->'. $locale, $slug)->first();
-
-        if (is_null($model)) {
-            foreach (config('locales.languages') as $key => $val)
-            {
-                $modelInLocal = $modelClass::where('slug->'. $key, $slug)->first();
-                if ($modelInLocal)
-                {
-                    $newRoute = str_replace($slug, $modelInLocal->slug, urldecode(\request()->fullUrl()));
-                    return redirect()->to($newRoute)->send();
-                }
-            }
-
-            abort(404);
-        }
-
-        return $model;
     }
 }

@@ -8,7 +8,7 @@ use App\Http\Controllers\PostController;
 
 Route::get('/change-lang/{local}', [LocaleController::class, 'switch'])->name('change.lang');
 
-Route::middleware(['localized'])->prefix(app()->getLocale())->group(function () {
+Route::group(['middleware' => 'web'], function () {
     require __DIR__.'/auth.php';
     Route::get('/dashboard', [HomeController::class, 'dashboard'])->middleware(['auth'])->name('dashboard');
     Route::get('/', [HomeController::class, 'home'])->name('home');
