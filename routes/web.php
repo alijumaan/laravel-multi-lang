@@ -12,7 +12,7 @@ Route::group(['middleware' => 'web'], function () {
     require __DIR__.'/auth.php';
     Route::get('/dashboard', [HomeController::class, 'dashboard'])->middleware(['auth'])->name('dashboard');
     Route::get('/', [HomeController::class, 'home'])->name('home');
-    Route::resource('posts', PostController::class)->only('index', 'show');
+    Route::resource('posts', PostController::class);
 });
 
 
